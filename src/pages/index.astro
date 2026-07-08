@@ -1,0 +1,256 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Edit these arrays to update the site — no need to touch the markup below.
+
+const skills = [
+  { name: 'Azure', learning: false },
+  { name: 'Claude Code', learning: false },
+  { name: 'Docker', learning: false },
+  { name: 'Go', learning: false },
+  { name: 'Linux', learning: false },
+  { name: 'GitHub Actions', learning: false },
+  { name: 'Terraform', learning: false },
+  { name: 'Kubernetes', learning: false },
+];
+
+const experience = [
+  {
+    name: 'Lingons',
+    role: 'Co-founder',
+    period: '04/2026 — present',
+    description:
+      'Hands-free, audio-first language learning app. Co-founder responsible for cloud infrastructure, backend, and DevOps.',
+    stack: 'GCP, Firebase, Go',
+    href: 'https://lingons.com/',
+  },
+  {
+    name: 'Lauta Media Ltd.',
+    role: 'Software Engineer Intern',
+    period: '10/2022 — 12/2022',
+    description:
+      'Worked on frontend and backend features for one of the top visited websites in Finland.',
+    stack: 'PHP, JavaScript, Git, GitHub, Vagrant, MySQL',
+    href: '#',
+  },
+  {
+    name: 'FDR Ab',
+    role: 'Software Engineer Intern',
+    period: '10/2021 — 12/2021',
+    description:
+      'Worked on website development.',
+    stack: 'JavaScript, HTML, CSS',
+    href: '#',
+  },
+];
+
+const projects = [
+  {
+    name: 'Self-Hosted Homelab',
+    period: '2025 — present',
+    description:
+      'Home server infrastructure running Proxmox VE. Automating container and VM provisioning via Terraform and Ansible, with secure Tailscale networking and automated backups.',
+    stack: 'Proxmox VE, Terraform, Ansible, Tailscale, Linux',
+    href: '#',
+  },
+];
+
+const education = [
+  {
+    institution: 'Tampere University',
+    degree: 'Bachelor of Science in Computer Science',
+    period: '2026 — 2028 (Exp.)',
+    description: 'Focusing on Cloud Engineering, DevOps, and Cloud Security.',
+  },
+  {
+    institution: 'Turku University of Applied Sciences',
+    degree: 'Bachelor of Business Administration, Business Information Technology',
+    period: '2024 — 2026',
+    description: 'Not graduated, switched to Computer Science in a university. Specialization in Software Engineering.',
+  },
+  {
+    institution: 'Turku Vocational Institute',
+    degree: 'Vocational Qualification in Information and Communications Technology',
+    period: '08/2020 — 05/2023',
+    description: 'Specialization in Software Engineering.',
+  },
+  {
+    institution: 'Turku Evening High School',
+    degree: 'Matriculation Examination',
+    period: '08/2020 — 06/2023',
+    description: '',
+  },
+];
+
+const certs = [
+  { name: 'AZ-104', issuer: 'Azure Administrator Associate' },
+  { name: 'AZ-900', issuer: 'Azure Fundamentals' },
+];
+
+const contactLinks = [
+  { label: 'email', href: 'mailto:you@example.com' },
+  { label: 'github', href: 'https://github.com/kallePohjanjoki' },
+  { label: 'linkedin', href: 'https://www.linkedin.com/in/kalle-pohjanjoki/' },
+];
+---
+
+<Layout>
+  <header>
+    <div class="wrap">
+      <div class="logo">KP</div>
+      <nav>
+        <a href="#experience">experience</a>
+        <a href="#projects">projects</a>
+        <a href="#education">education</a>
+        <a href="#about">about</a>
+        <a href="#contact">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="eyebrow">Tampere, Finland</div>
+          <h1>I build and secure cloud infrastructure.</h1>
+          <p>
+            CS student at Tampere University. Co-founder handling Cloud
+            infrastructure and Backend development at Lingons. Currently deepening my expertise on Cloud Security.
+          </p>
+          <div class="links">
+            <a class="btn primary" href="#experience">View experience</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="hero-avatar">
+          <img src="/headshot_bw.jpg" alt="Kalle Pohjanjoki" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="status">
+    <div class="wrap">
+      <div class="label">// current stack</div>
+      <div class="status-grid">
+        {skills.map((skill) => (
+          <div class="status-item">
+            <span class={`dot ${skill.learning ? 'learning' : ''}`}></span>
+            {skill.name}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>Experience</h2>
+        <div class="count">{String(experience.length).padStart(2, '0')}</div>
+      </div>
+
+      {experience.map((item) => (
+        <div class="project">
+          <div class="project-top">
+            <h3>{item.name}</h3>
+            <span class="tag">{item.period}</span>
+          </div>
+          {item.role && <div class="role">{item.role}</div>}
+          <p>{item.description}</p>
+          <div class="stack"><span>Stack —</span> {item.stack}</div>
+          <a class="view" href={item.href} target="_blank">View project →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>Projects</h2>
+        <div class="count">{String(projects.length).padStart(2, '0')}</div>
+      </div>
+
+      {projects.map((project) => (
+        <div class="project">
+          <div class="project-top">
+            <h3>{project.name}</h3>
+            <span class="tag">{project.period}</span>
+          </div>
+          <p>{project.description}</p>
+          <div class="stack"><span>Stack —</span> {project.stack}</div>
+          <a class="view" href={project.href}>View project →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="block" id="education">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>Education</h2>
+        <div class="count">{String(education.length).padStart(2, '0')}</div>
+      </div>
+
+      {education.map((edu) => (
+        <div class="project">
+          <div class="project-top">
+            <h3>{edu.institution}</h3>
+            <span class="tag">{edu.period}</span>
+          </div>
+          <div class="role">{edu.degree}</div>
+          {edu.description && <p>{edu.description}</p>}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>About</h2>
+      </div>
+      <div class="about">
+        <p>
+          I'm a computer science student at Tampere University, focused on Cloud
+          Engineering and Cloud Security. Strongest with Azure
+        </p>
+
+      </div>
+
+      <div class="block-head" style="margin-top: 48px;">
+        <h2>Certifications</h2>
+      </div>
+      <div class="certs">
+        {certs.map((cert) => (
+          <div class="cert">
+            <div class="name">{cert.name}</div>
+            <div class="issuer">{cert.issuer}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Open to cloud engineering internships for 2027.</h2>
+      <div class="links">
+        {contactLinks.map((link) => (
+          <a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
+            → {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+      <span>© 2026 Kalle Pohjanjoki</span>
+      <span>Built with Astro · deployed to Azure / GCP / AWS</span>
+    </div>
+  </footer>
+</Layout>
