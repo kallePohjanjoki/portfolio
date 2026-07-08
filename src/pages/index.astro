@@ -47,10 +47,23 @@ const experience = [
 const projects = [
   {
     name: 'Self-Hosted Homelab',
-    period: '2025 — present',
     description:
       'Home server infrastructure running Proxmox VE. Automating container and VM provisioning via Terraform and Ansible, with secure Tailscale networking and automated backups.',
     stack: 'Proxmox VE, Terraform, Ansible, Tailscale, Linux',
+    href: '#',
+  },
+  {
+    name: 'Multi-Region High-Availability Azure Architecture',
+    description:
+      'Designed and deployed an active-active, highly resilient infrastructure across multiple Azure regions using Terraform. Configured Azure Front Door for global load balancing and Cosmos DB with multi-region replication to achieve seamless failover capability.',
+    stack: 'Azure, Terraform, Azure Front Door, Cosmos DB, GitHub Actions',
+    href: '#',
+  },
+  {
+    name: 'GitOps Continuous Delivery Pipeline',
+    description:
+      'Built a fully automated GitOps deployment pipeline for containerized applications. Integrated ArgoCD with Kubernetes clusters to enable automated configuration syncs and deployed Prometheus and Grafana for system health telemetry.',
+    stack: 'Kubernetes, ArgoCD, Prometheus, Grafana, Docker, Helm',
     href: '#',
   },
 ];
@@ -59,7 +72,7 @@ const education = [
   {
     institution: 'Tampere University',
     degree: 'Bachelor of Science in Computer Science',
-    period: '2026 — 2028 (Exp.)',
+    period: 'Exp. 2028 ',
     description: 'Focusing on Cloud Engineering, DevOps, and Cloud Security.',
   },
   {
@@ -97,12 +110,17 @@ const contactLinks = [
 <Layout>
   <header>
     <div class="wrap">
-      <div class="logo">KP</div>
-      <nav>
+      <div class="logo">Kalle Pohjanjoki</div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="navMenu">
         <a href="#experience">experience</a>
         <a href="#projects">projects</a>
         <a href="#education">education</a>
-        <a href="#about">about</a>
+        <a href="#certifications">certifications</a>
         <a href="#contact">contact</a>
       </nav>
     </div>
@@ -177,7 +195,7 @@ const contactLinks = [
         <div class="project">
           <div class="project-top">
             <h3>{project.name}</h3>
-            <span class="tag">{project.period}</span>
+            {project.period && <span class="tag">{project.period}</span>}
           </div>
           <p>{project.description}</p>
           <div class="stack"><span>Stack —</span> {project.stack}</div>
@@ -207,21 +225,11 @@ const contactLinks = [
     </div>
   </section>
 
-  <section class="block" id="about">
+  <section class="block" id="certifications">
     <div class="wrap">
       <div class="block-head">
-        <h2>About</h2>
-      </div>
-      <div class="about">
-        <p>
-          I'm a computer science student at Tampere University, focused on Cloud
-          Engineering and Cloud Security. Strongest with Azure
-        </p>
-
-      </div>
-
-      <div class="block-head" style="margin-top: 48px;">
         <h2>Certifications</h2>
+        <div class="count">{String(certs.length).padStart(2, '0')}</div>
       </div>
       <div class="certs">
         {certs.map((cert) => (
@@ -250,7 +258,41 @@ const contactLinks = [
   <footer>
     <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
       <span>© 2026 Kalle Pohjanjoki</span>
-      <span>Built with Astro · deployed to Azure / GCP / AWS</span>
+      <span>Built with Astro · deployed to Azure and AWS</span>
     </div>
   </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = navMenu?.querySelectorAll('a');
+
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      navLinks?.forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+
+      document.addEventListener('click', (event) => {
+        const target = event.target as HTMLElement;
+        const isClickInside = menuToggle.contains(target) || navMenu.contains(target);
+        if (!isClickInside && navMenu.classList.contains('active')) {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+        }
+      });
+    }
+  </script>
 </Layout>
