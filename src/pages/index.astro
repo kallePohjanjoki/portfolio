@@ -53,11 +53,11 @@ const projects = [
     href: '#',
   },
   {
-    name: 'Multi-Region High-Availability Azure Architecture',
+    name: 'Pohjanjoki.com',
     description:
-      'Designed and deployed an active-active, highly resilient infrastructure across multiple Azure regions using Terraform. Configured Azure Front Door for global load balancing and Cosmos DB with multi-region replication to achieve seamless failover capability.',
-    stack: 'Azure, Terraform, Azure Front Door, Cosmos DB, GitHub Actions',
-    href: '#',
+      'Developed and deployed a portfolio by defining Azure infrastructure as code with Terraform. Established a fully automated GitHub Actions CI/CD pipeline and integrated custom DNS records for domain management.',
+    stack: 'Azure, Terraform, GitHub Actions, Astro',
+    href: 'https://github.com/kallePohjanjoki/portfolio',
   },
   {
     name: 'GitOps Continuous Delivery Pipeline',
@@ -185,7 +185,6 @@ const contactLinks = [
           {item.role && <div class="role">{item.role}</div>}
           <p>{item.description}</p>
           <div class="stack"><span>Stack —</span> {item.stack}</div>
-          <a class="view" href={item.href} target="_blank">View project →</a>
         </div>
       ))}
     </div>
@@ -265,7 +264,7 @@ const contactLinks = [
   <footer>
     <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
       <span>© 2026 Kalle Pohjanjoki</span>
-      <span>Built with Astro · deployed to Azure and AWS</span>
+      <span>Built with Astro · deployed to Azure</span>
     </div>
   </footer>
 
