@@ -20,11 +20,11 @@ jobs:
           submodules: true
           lfs: false
 
-      # Setup Node.js environment to build Astro manually
+    # Setup Node.js environment to build Astro manually
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       # Install dependencies and build the Astro site locally in the runner
       - name: Install dependencies and build Astro
