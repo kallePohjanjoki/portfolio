@@ -5,13 +5,13 @@ import Layout from '../layouts/Layout.astro';
 
 const skills = [
   { name: 'Azure', learning: false },
-  { name: 'Claude Code', learning: false },
-  { name: 'Docker', learning: false },
-  { name: 'Go', learning: false },
-  { name: 'Linux', learning: false },
-  { name: 'GitHub Actions', learning: false },
+  { name: 'AWS', learning: false },
   { name: 'Terraform', learning: false },
   { name: 'Kubernetes', learning: false },
+  { name: 'Docker', learning: false },
+  { name: 'Linux', learning: false },
+  { name: 'GitHub Actions', learning: false },
+  { name: 'Agentic AI', learning: false },
 ];
 
 const experience = [
@@ -22,7 +22,7 @@ const experience = [
     description:
       'Hands-free, audio-first language learning app. Co-founder responsible for cloud infrastructure, backend, and DevOps.',
     stack: 'GCP, Firebase, Go',
-    href: 'https://lingons.com/',
+
   },
   {
     name: 'Lauta Media Ltd.',
@@ -31,7 +31,7 @@ const experience = [
     description:
       'Worked on frontend and backend features for one of the top visited websites in Finland.',
     stack: 'PHP, JavaScript, Git, GitHub, Vagrant, MySQL',
-    href: '#',
+
   },
   {
     name: 'FDR Ab',
@@ -40,32 +40,28 @@ const experience = [
     description:
       'Worked on website development.',
     stack: 'JavaScript, HTML, CSS',
-    href: '#',
+
+  },
+  {
+    name: 'Rajala Pro Shop',
+    role: 'Customer Support Intern',
+    period: '1/2021 — 3/2021',
+    description:
+      'Worked in customer support, answering emails and packed products.',
+    stack: 'Customer Support, Microsoft Office',
+
   },
 ];
 
 const projects = [
-  {
-    name: 'Self-Hosted Homelab',
-    description:
-      'Home server infrastructure running Proxmox VE. Automating container and VM provisioning via Terraform and Ansible, with secure Tailscale networking and automated backups.',
-    stack: 'Proxmox VE, Terraform, Ansible, Tailscale, Linux',
-    href: '#',
-  },
+
   {
     name: 'Pohjanjoki.com',
     description:
       'Developed and deployed a portfolio by defining Azure infrastructure as code with Terraform. Established a fully automated GitHub Actions CI/CD pipeline and integrated custom DNS records for domain management.',
     stack: 'Azure, Terraform, GitHub Actions, Astro',
     href: 'https://github.com/kallePohjanjoki/portfolio',
-  },
-  {
-    name: 'GitOps Continuous Delivery Pipeline',
-    description:
-      'Built a fully automated GitOps deployment pipeline for containerized applications. Integrated ArgoCD with Kubernetes clusters to enable automated configuration syncs and deployed Prometheus and Grafana for system health telemetry.',
-    stack: 'Kubernetes, ArgoCD, Prometheus, Grafana, Docker, Helm',
-    href: '#',
-  },
+  }
 ];
 
 const education = [
@@ -141,7 +137,7 @@ const contactLinks = [
           <h1>CS Student</h1>
           <p>
             Computer Science student at Tampere University. Co-founder handling Cloud
-            infrastructure and Backend development at Lingons. Currently deepening my expertise on Cloud Security.
+            infrastructure and Backend development at Lingons. Currently studying for the AWS Certified Solutions Architect – Associate certification to complement my Azure background.
           </p>
           <div class="links">
             <a class="btn primary" href="#experience">View experience</a>
@@ -172,7 +168,7 @@ const contactLinks = [
   <section class="block" id="experience">
     <div class="wrap">
       <div class="block-head">
-        <h2>Experience</h2>
+        <h2>Relevant Experience</h2>
         <div class="count">{String(experience.length).padStart(2, '0')}</div>
       </div>
 
