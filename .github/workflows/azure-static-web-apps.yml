@@ -31,3 +31,5 @@ jobs:
           app_location: "/"          # Root directory of the Astro project
           api_location: ""           # No API components required for this architecture
           output_location: "dist"    # Target directory containing the compiled static assets
+          skip_app_build: false
+          skip_api_build: true       # Explicitly skip any API/Database scanning
