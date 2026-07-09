@@ -1,6 +1,6 @@
 # Resource definition for the portfolio static web application
 resource "azurerm_static_web_app" "portfolio" {
-  name                = "stapp-portfolio-prod"
+  name                = "stapp-portfolio-prod-v2"
   resource_group_name = azurerm_resource_group.rg.name
   location            = "westeurope"
   sku_tier            = "Free"
