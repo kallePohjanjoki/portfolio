@@ -340,7 +340,9 @@ section.block:last-of-type {
 }
 
 .project a.view {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     margin-top: 12px;
     font-family: var(--font-mono);
     font-size: 12px;
