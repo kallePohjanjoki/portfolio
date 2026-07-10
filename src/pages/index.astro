@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import headshotImage from '../assets/headshot_bw.jpeg';
 
 // Edit these arrays to update the site — no need to touch the markup below.
 
@@ -145,7 +147,7 @@ const contactLinks = [
           </div>
         </div>
         <div class="hero-avatar">
-          <img src="/headshot_bw.jpeg" alt="Kalle Pohjanjoki" />
+          <Image src={headshotImage} alt="Kalle Pohjanjoki" width={480} />
         </div>
       </div>
     </div>
