@@ -37,7 +37,6 @@ header,
 section,
 footer,
 .project,
-.cert,
 .status-item,
 nav a,
 .logo,
@@ -349,31 +348,7 @@ section.block:last-of-type {
     border-bottom: 1px solid var(--fg);
 }
 
-/* ---------- Certs ---------- */
-.certs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-}
 
-.cert {
-    background: var(--bg);
-    padding: 16px;
-}
-
-.cert .name {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    font-weight: 500;
-}
-
-.cert .issuer {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 4px;
-}
 
 /* ---------- About ---------- */
 .about p {
@@ -449,9 +424,7 @@ footer {
         font-size: 32px;
     }
 
-    .certs {
-        grid-template-columns: 1fr;
-    }
+
 
     nav {
         display: none;

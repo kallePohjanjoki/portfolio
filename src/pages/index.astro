@@ -40,7 +40,7 @@ const experience = [
     role: 'Software Engineer Intern',
     period: '10/2021 — 12/2021',
     description:
-      "Developed the company's website",
+      "Developed the company's website.",
     stack: 'JavaScript, HTML, CSS',
 
   },
@@ -69,33 +69,47 @@ const projects = [
 const education = [
   {
     institution: 'Tampere University',
-    degree: 'Bachelor of Science in Computer Science',
-    period: 'Exp. 2028 ',
-    description: 'Minor in Business',
+    degree: 'Master of Science in Computer Science',
+    period: '2026 - 2030 ',
+    description: 'Specialization in Information Security. Minor in Industrial Engineering and Management. ',
   },
   {
     institution: 'Turku University of Applied Sciences',
     degree: 'Bachelor of Business Administration, Business Information Technology',
     period: '2024 — 2026',
-    description: 'Not graduated, switched to Computer Science in a university. Specialization in Software Engineering.',
+    description: 'Specialization in Software Engineering. Not graduated. ',
   },
   {
     institution: 'Turku Vocational Institute',
     degree: 'Vocational Qualification in Information and Communications Technology',
-    period: '08/2020 — 05/2023',
+    period: '2020 — 2023',
     description: 'Specialization in Software Engineering.',
   },
   {
     institution: 'Turku Evening High School',
     degree: 'Matriculation Examination',
-    period: '08/2020 — 06/2023',
+    period: '2020 — 2023',
     description: '',
   },
 ];
 
 const certs = [
-  { name: 'AZ-104', issuer: 'Azure Administrator Associate' },
-  { name: 'AZ-900', issuer: 'Azure Fundamentals' },
+  {
+    name: 'Azure Administrator Associate',
+    issuer: 'Microsoft',
+    period: 'AZ-104',
+    description:
+      'Validates capabilities in implementing, managing, and monitoring identity, governance, storage, compute, and virtual networks in a cloud environment.',
+    href: 'https://learn.microsoft.com/api/credentials/share/en-us/KallePohjanjoki/5F9A1461288E93E7?sharingId=31F3D446F07F433E',
+  },
+  {
+    name: 'Azure Fundamentals',
+    issuer: 'Microsoft',
+    period: 'AZ-900',
+    description:
+      'Demonstrates foundational knowledge of cloud concepts, Azure services, workloads, security, privacy, pricing, and support.',
+    href: 'https://learn.microsoft.com/api/credentials/share/en-us/KallePohjanjoki/ACFFFC3CAEC93474?sharingId=31F3D446F07F433E',
+  },
 ];
 
 const contactLinks = [
@@ -240,14 +254,27 @@ const contactLinks = [
         <h2>Certifications</h2>
         <div class="count">{String(certs.length).padStart(2, '0')}</div>
       </div>
-      <div class="certs">
-        {certs.map((cert) => (
-          <div class="cert">
-            <div class="name">{cert.name}</div>
-            <div class="issuer">{cert.issuer}</div>
+
+      {certs.map((cert) => (
+        <div class="project">
+          <div class="project-top">
+            <h3>{cert.name}</h3>
+            {cert.period && <span class="tag">{cert.period}</span>}
           </div>
-        ))}
-      </div>
+          {cert.issuer && <div class="role">{cert.issuer}</div>}
+          {cert.description && <p>{cert.description}</p>}
+          {cert.href && (
+            <a class="view" href={cert.href} target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              View Certificate
+            </a>
+          )}
+        </div>
+      ))}
     </div>
   </section>
 
