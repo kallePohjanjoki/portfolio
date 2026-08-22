@@ -17,16 +17,7 @@ const skills = [
 ];
 
 const experience = [
-  {
-    name: 'Lingons',
-    role: 'Co-founder',
-    period: '04/2026 — present',
-    description:
-      'Hands-free, audio-first language learning app. Co-founder responsible for cloud infrastructure, backend, and DevOps.',
-    stack: 'GCP, Firebase, Go',
-
-  },
-  {
+    {
     name: 'Lauta Media Ltd.',
     role: 'Software Engineer Intern',
     period: '10/2022 — 12/2022',
@@ -63,7 +54,14 @@ const projects = [
       'Developed and deployed a portfolio by defining Azure infrastructure as code with Terraform. Established a fully automated GitHub Actions CI/CD pipeline and integrated custom DNS records for domain management.',
     stack: 'Azure, Terraform, GitHub Actions, Astro',
     href: 'https://github.com/kallePohjanjoki/portfolio',
-  }
+  },
+  {
+    name: 'Homelab GitOps Platform',
+    description:
+        'A declarative local Kubernetes (K3s) platform managed via GitOps using ArgoCD for automated continuous delivery. Features real-time cluster telemetry powered by Prometheus and Grafana, alongside automated service health and SSL monitoring via Uptime Kuma.',
+    stack: 'Kubernetes, ArgoCD, Helm, Prometheus, Grafana',
+    href: 'https://github.com/kallePohjanjoki/homelab-gitops',
+  },
 ];
 
 const education = [
@@ -71,7 +69,7 @@ const education = [
     institution: 'Tampere University',
     degree: 'Master of Science in Computer Science',
     period: '2026 - 2030 ',
-    description: 'Major in Information Security. Minor in IEM. ',
+    description: 'Major in Information Security. ',
   },
   {
     institution: 'Turku University of Applied Sciences',
@@ -152,8 +150,7 @@ const contactLinks = [
           <h1>Cloud Engineer</h1>
           <h1>CS Student</h1>
           <p>
-            Computer Science student at Tampere University majoring in Information Security. Co-founder handling Cloud
-            infrastructure and Backend development at Lingons. Currently studying for the AWS Certified Solutions Architect certification to complement my Azure background.
+            Computer Science student at Tampere University majoring in Information Security. Passionate about cloud architecture, automation, and secure infrastructure
           </p>
           <div class="links">
             <a class="btn primary" href="/cv.pdf" download>Download CV</a>
