@@ -1,8 +1,8 @@
 # pohjanjoki.com
 
-Personal portfolio site for myself
+Personal portfolio site
 
-[Live Here](https://www.pohjanjoki.com)
+[Live Here](https://kalle.pohjanjoki.com)
 
 ## Overview
 
