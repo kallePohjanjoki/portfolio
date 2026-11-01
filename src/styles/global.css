@@ -109,9 +109,6 @@ nav a:hover {
     overflow: hidden;
     border-radius: 50%;
     background: var(--surface);
-    box-shadow:
-        0 0 24px 6px color-mix(in srgb, var(--accent) 38%, transparent),
-        0 0 42px 12px color-mix(in srgb, var(--accent) 24%, transparent);
 }
 
 .hero-avatar img {
@@ -122,7 +119,7 @@ nav a:hover {
     border-radius: 50%;
     object-fit: cover;
     object-position: center 100%;
-    transform: translateY(-8px) scale(1.10);
+    transform: translateY(-4px) scale(1.10);
 }
 
 .hero-avatar::after {
@@ -828,9 +825,21 @@ footer {
         padding: 8px 0;
     }
 
+    header nav {
+        display: none;
+    }
+
+    header nav.active {
+        display: flex;
+    }
+
     header .wrap {
+        width: 52px;
         min-height: 50px;
+        margin: 0 16px 0 auto;
         padding: 0 14px;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
 
     .hero-title-row {
@@ -885,10 +894,11 @@ footer {
     }
 
     nav.active {
-        background: var(--surface);
-        border: 1px solid var(--glass-edge);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
+        right: 0;
+        background: rgba(255, 255, 255, .25);
+        border: 1px solid rgba(255, 255, 255, .88);
+        border-radius: 16px;
+        box-shadow: 0 14px 38px rgba(55, 83, 116, .12), inset 0 1px 0 rgba(255, 255, 255, .9);
     }
 }
 
