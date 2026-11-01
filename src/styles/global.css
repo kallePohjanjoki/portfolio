@@ -108,7 +108,7 @@ nav a:hover {
     padding: 4px;
     overflow: hidden;
     border-radius: 50%;
-    background: linear-gradient(145deg, #ffafc8, #afc8ff, #8fc4ff);
+    background: var(--surface);
     box-shadow:
         0 0 24px 6px color-mix(in srgb, var(--accent) 38%, transparent),
         0 0 42px 12px color-mix(in srgb, var(--accent) 24%, transparent);
@@ -122,7 +122,7 @@ nav a:hover {
     border-radius: 50%;
     object-fit: cover;
     object-position: center 100%;
-    transform: translateY(-8px) scale(1.16);
+    transform: translateY(-8px) scale(1.10);
 }
 
 .hero-avatar::after {
