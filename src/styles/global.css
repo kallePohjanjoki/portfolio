@@ -126,7 +126,7 @@ nav a:hover {
     content: '';
     position: absolute;
     inset: 0;
-    border: 4px solid var(--accent);
+    border: 4px solid #fff;
     border-radius: inherit;
     pointer-events: none;
 }
@@ -988,19 +988,33 @@ a:focus-visible,
 }
 
 .skill-icon {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     width: 32px;
     height: 32px;
     flex: 0 0 32px;
     padding: 7px;
     color: #527a9b;
-    background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(226,237,250,.58));
-    border: 1px solid rgba(255,255,255,.9);
+    background: linear-gradient(145deg, rgba(255,255,255,.72), rgba(224,239,255,.28) 58%, rgba(205,227,249,.2));
+    border: 1px solid rgba(255,255,255,.72);
     border-radius: 9px;
-    box-shadow: 0 3px 9px rgba(52, 82, 116, .08), inset 0 1px 0 #fff;
+    box-shadow: 0 4px 10px rgba(52, 82, 116, .07), inset 0 1px 0 rgba(255,255,255,.96), inset 0 -1px 0 rgba(117,160,202,.1);
+}
+
+.skill-icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(145deg, rgba(255,255,255,.55), transparent 54%);
+    pointer-events: none;
 }
 
 .skill-icon img,
 .skill-icon svg {
+    position: relative;
+    z-index: 1;
     display: block;
     width: 100%;
     height: 100%;
