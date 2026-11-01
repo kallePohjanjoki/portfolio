@@ -561,8 +561,8 @@ header .wrap {
     border: 1px solid var(--glass-edge);
     border-radius: 16px;
     box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 nav a {
@@ -724,8 +724,8 @@ section.block {
     border-top: 1px solid var(--glass-edge);
     border-radius: 14px;
     box-shadow: 0 9px 28px rgba(55, 83, 116, .055), inset 0 1px 0 rgba(255, 255, 255, .76);
-    backdrop-filter: blur(16px) saturate(135%);
-    -webkit-backdrop-filter: blur(16px) saturate(135%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 .project:hover {
@@ -786,8 +786,8 @@ section.block {
     border: 1px solid var(--glass-edge);
     border-radius: 18px;
     box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(20px) saturate(145%);
-    -webkit-backdrop-filter: blur(20px) saturate(145%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .contact h2 {
@@ -964,8 +964,8 @@ a:focus-visible,
     border: 1px solid rgba(255, 255, 255, .84);
     border-radius: 13px;
     box-shadow: 0 8px 24px rgba(45, 80, 120, .07), inset 0 1px 0 rgba(255, 255, 255, .9);
-    backdrop-filter: blur(16px) saturate(145%);
-    -webkit-backdrop-filter: blur(16px) saturate(145%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     font-family: var(--font-body);
     font-size: 12px;
     font-weight: 500;
