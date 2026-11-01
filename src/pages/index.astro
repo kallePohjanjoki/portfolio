@@ -1,37 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import headshotImage from '../assets/headshot_bw.jpeg';
+import headshotImage from '../assets/headshot_nav.jpg';
 
 const skills = [
-  { name: 'Azure', learning: false },
-  { name: 'AWS', learning: false },
-  { name: 'Terraform', learning: false },
-  { name: 'Python', learning: false },
-  { name: 'SQL', learning: false },
-  { name: 'Kubernetes', learning: false },
-  { name: 'Docker', learning: false },
-  { name: 'CI/CD', learning: false },
+  { name: 'Azure', icon: 'microsoftazure', color: '0078D4' },
+  { name: 'AWS', icon: 'amazonaws', color: 'FF9900' },
+  { name: 'Terraform', icon: 'terraform', color: '7B42BC' },
+  { name: 'Python', icon: 'python', color: '3776AB' },
+  { name: 'SQL', icon: 'database', color: '527A9B' },
+  { name: 'Kubernetes', icon: 'kubernetes', color: '68AFF0' },
+  { name: 'Docker', icon: 'docker', color: '68AFF0' },
+  { name: 'CI/CD', icon: 'githubactions', color: '68AFF0' },
 ];
 
 const experience = [
-     {
-    name: 'Tampere University.',
+  {
+    name: 'Tampere University',
     role: 'Teaching Assistant',
-    period: '10/2026 - Present',
+    period: '11/2026 — Present',
     description:
       'Teaching Assistant for the Programming 1 course.',
     stack: 'Python',
-
   },
-    {
+  {
     name: 'Lauta Media Ltd.',
     role: 'Software Engineer Intern',
     period: '10/2022 — 12/2022',
     description:
       'Contributed to a high-traffic web platform with over 3 million monthly visitors. Responsibilities included fixing bugs and developing minor features for the website.',
     stack: 'PHP, JavaScript, Git, GitHub, Vagrant, MySQL',
-
   },
   {
     name: 'FDR Ab',
@@ -40,32 +38,33 @@ const experience = [
     description:
       "Developed the company's website.",
     stack: 'JavaScript, HTML, CSS',
-
   }
 ];
 
 const projects = [
-
-  {
-    name: 'Pohjanjoki.com',
-    description:
-      'Developed and deployed a portfolio by defining Azure infrastructure as code with Terraform. Established a fully automated GitHub Actions CI/CD pipeline and integrated custom DNS records for domain management.',
-    stack: 'Azure, Terraform, GitHub Actions, Astro',
-    href: 'https://github.com/kallePohjanjoki/portfolio',
-  },
   {
     name: 'Homelab GitOps Platform',
-    description:
-        'A declarative local Kubernetes platform managed via GitOps using ArgoCD for automated continuous delivery. Features real-time cluster telemetry powered by Prometheus and Grafana, alongside automated service health and SSL monitoring via Uptime Kuma.',
+    goal: 'Manage a local Kubernetes homelab through version-controlled configuration.',
+    built: 'Configured ArgoCD for GitOps delivery, with Prometheus and Grafana telemetry plus Uptime Kuma health and SSL checks.',
+    outcome: 'Git changes drive deployments, while cluster metrics and service health stay visible.',
     stack: 'Kubernetes, ArgoCD, Helm, Prometheus, Grafana',
     href: 'https://github.com/kallePohjanjoki/homelab-gitops',
   },
   {
     name: 'Container CI/CD Pipeline',
-    description: 'Built an automated build-test-deploy pipeline for a containerized application using GitHub Actions, Docker, and Terraform. Provisioned the Azure Container Apps environment as code and configured automated image builds, testing, and deployment on every push.',
+    goal: 'Automate delivery for a containerized application.',
+    built: 'Created a GitHub Actions build and test workflow, and provisioned Azure Container Apps with Terraform.',
+    outcome: 'Every push builds, tests, and deploys the application.',
     stack: 'Azure, Terraform, Docker, GitHub Actions',
     href: 'https://github.com/kallePohjanjoki/container-cicd-pipeline',
-
+  },
+  {
+    name: 'Pohjanjoki.com',
+    goal: 'Build and deploy a personal portfolio with repeatable cloud infrastructure.',
+    built: 'Created the site with Astro, managed Azure infrastructure with Terraform, and added GitHub Actions CI/CD and custom DNS.',
+    outcome: 'The site and its infrastructure deploy through an automated pipeline.',
+    stack: 'Azure, Terraform, GitHub Actions, Astro',
+    href: 'https://github.com/kallePohjanjoki/portfolio',
   }
 ];
 
@@ -73,14 +72,14 @@ const education = [
   {
     institution: 'Tampere University',
     degree: 'Bachelor of Science, Computer Science',
-    period: '01/2026 - Present ',
-    description: 'Minor in Communication Systems and Networks.  ',
+    period: '01/2026 — Present',
+    description: 'Minor in Communication Systems and Networks.',
   },
   {
     institution: 'Turku University of Applied Sciences',
     degree: 'Bachelor of Business Administration, Business Information Technology',
     period: '08/2024 — 12/2025',
-    description: 'Major in Software Engineering. ',
+    description: 'Major in Software Engineering.',
   },
   {
     institution: 'Turku Vocational Institute',
@@ -125,19 +124,14 @@ const contactLinks = [
 <Layout>
   <header>
     <div class="wrap">
-      <div class="logo">Kalle Pohjanjoki</div>
       <nav id="navMenu">
-        <a href="#experience">experience</a>
-        <a href="#projects">projects</a>
-        <a href="#education">education</a>
-        <a href="#certifications">certifications</a>
-        <a href="#contact">contact</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
       </nav>
       <div class="header-right">
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-          <svg class="sun" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="moon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu" aria-expanded="false">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -151,20 +145,18 @@ const contactLinks = [
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-content">
-          <div class="eyebrow">Tampere, Finland</div>
-          <h1>Cloud Engineer</h1>
-          <h1>CS Student</h1>
-          <p>Computer Science student at Tampere University, focusing on Cloud, Security and DevOps. AZ-104 certified, with hands-on experience in Azure, AWS, Terraform, Kubernetes and Docker.
-
-
-          </p>
+          <div class="hero-name">Kalle Pohjanjoki</div>
+          <div class="hero-title-row">
+            <h1>Cloud Engineer</h1>
+            <div class="hero-avatar">
+              <Image src={headshotImage} alt="Kalle Pohjanjoki" width={280} height={280} loading="eager" />
+            </div>
+          </div>
+          <p>Computer Science student at Tampere University, focused on cloud, security, and DevOps. AZ-104 certified, with hands-on experience across Azure, AWS, Terraform, Kubernetes, and Docker.</p>
           <div class="links">
             <a class="btn primary" href="/Resume.pdf" download>Download CV</a>
-            <a class="btn ghost" href="#contact">Get in touch</a>
+            <a class="btn ghost" href="https://github.com/kallePohjanjoki" target="_blank" rel="noopener noreferrer"><svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.16-.68-.55-.01-.56.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0 1 8 3.5c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>GitHub profile <span aria-hidden="true">↗</span></a>
           </div>
-        </div>
-        <div class="hero-avatar">
-          <Image src={headshotImage} alt="Kalle Pohjanjoki" width={480} loading="eager" fetchpriority="high" />
         </div>
       </div>
     </div>
@@ -176,8 +168,18 @@ const contactLinks = [
       <div class="status-grid">
         {skills.map((skill) => (
           <div class="status-item">
-            <span class={`dot ${skill.learning ? 'learning' : ''}`}></span>
-            {skill.name}
+            <span class={`skill-icon skill-icon-${skill.icon}`} aria-hidden="true">
+              {skill.icon === 'database' ? (
+                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7.5" ry="3"/><path d="M4.5 5v14c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V5M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3"/></svg>
+              ) : skill.icon === 'microsoftazure' ? (
+                <svg class="brand-icon" viewBox="0 0 24 24"><path d="M22.379 23.343a1.62 1.62 0 0 0 1.536-2.14v.002L17.35 1.76A1.62 1.62 0 0 0 15.816.657H8.184A1.62 1.62 0 0 0 6.65 1.76L.086 21.204a1.62 1.62 0 0 0 1.536 2.139h4.741a1.62 1.62 0 0 0 1.535-1.103l.977-2.892 4.947 3.675c.28.208.618.32.966.32m-3.084-12.531 3.624 10.739a.54.54 0 0 1-.51.713h-.03a.54.54 0 0 1-.322-.106l-9.287-6.9h4.853m6.313 7.006c.116-.326.13-.694.007-1.058L9.79 1.76a1.722 1.722 0 0 0-.007-.02h6.034a.54.54 0 0 1 .512.366l6.562 19.445a.54.54 0 0 1-.338.684Z"/></svg>
+              ) : skill.icon === 'amazonaws' ? (
+                <svg class="brand-icon" viewBox="0 0 24 24"><path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.024-.527.272-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.383.607zM22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z"/></svg>
+              ) : (
+                <img src={`https://cdn.simpleicons.org/${skill.icon}/${skill.color}`} alt="" loading="lazy" />
+              )}
+            </span>
+            <span>{skill.name}</span>
           </div>
         ))}
       </div>
@@ -187,17 +189,17 @@ const contactLinks = [
   <section class="block" id="experience">
     <div class="wrap">
       <div class="block-head">
-        <h2>Relevant Experience</h2>
+        <h2>Experience</h2>
         <div class="count">{String(experience.length).padStart(2, '0')}</div>
       </div>
 
       {experience.map((item) => (
         <div class="project">
           <div class="project-top">
-            <h3>{item.name}</h3>
+            <h3>{item.role}</h3>
             <span class="tag">{item.period}</span>
           </div>
-          {item.role && <div class="role">{item.role}</div>}
+          <div class="role">{item.name}</div>
           <p>{item.description}</p>
           <div class="stack"><span>Stack —</span> {item.stack}</div>
         </div>
@@ -215,17 +217,15 @@ const contactLinks = [
       {projects.map((project) => (
         <div class="project">
           <div class="project-top">
-            <h3>{project.name}</h3>
+            <h3><a class="project-title-link" href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} on GitHub`}>{project.name}<span aria-hidden="true"> ↗</span></a></h3>
             {project.period && <span class="tag">{project.period}</span>}
           </div>
-          <p>{project.description}</p>
+          <dl class="project-story">
+            <div><dt>Goal</dt><dd>{project.goal}</dd></div>
+            <div><dt>Built</dt><dd>{project.built}</dd></div>
+            <div><dt>Outcome</dt><dd>{project.outcome}</dd></div>
+          </dl>
           <div class="stack"><span>Stack —</span> {project.stack}</div>
-          <a class="view" href={project.href} target="_blank" rel="noopener noreferrer">
-            <svg class="github-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-            </svg>
-            View on GitHub
-          </a>
         </div>
       ))}
     </div>
@@ -305,31 +305,6 @@ const contactLinks = [
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     const navLinks = navMenu?.querySelectorAll('a');
-    const themeToggle = document.getElementById('themeToggle');
-
-    // Theme Toggle Handler
-    themeToggle?.addEventListener('click', () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      if (isDark) {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      }
-    });
-
-    // Listen for system theme changes in real-time
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      if (typeof localStorage !== 'undefined' && !localStorage.getItem('theme')) {
-        if (e.matches) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-          document.documentElement.removeAttribute('data-theme');
-        }
-      }
-    });
-
     // Mobile Hamburger Handler
     if (menuToggle && navMenu) {
       menuToggle.addEventListener('click', (e) => {
@@ -350,7 +325,7 @@ const contactLinks = [
 
       document.addEventListener('click', (event) => {
         const target = event.target as HTMLElement;
-        const isClickInside = menuToggle.contains(target) || navMenu.contains(target) || (themeToggle && themeToggle.contains(target));
+        const isClickInside = menuToggle.contains(target) || navMenu.contains(target);
         if (!isClickInside && navMenu.classList.contains('active')) {
           menuToggle.setAttribute('aria-expanded', 'false');
           menuToggle.classList.remove('active');
