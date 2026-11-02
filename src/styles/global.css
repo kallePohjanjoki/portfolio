@@ -751,10 +751,6 @@ a:focus-visible,
     stroke-linejoin: round;
 }
 
-.skill-icon .pipeline-icon {
-    stroke-width: 2.5;
-}
-
 /* Lucide user-round-key icon, ISC License: https://lucide.dev/icons/user-round-key */
 .skill-icon .iam-icon {
     stroke-width: 2;
