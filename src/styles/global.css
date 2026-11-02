@@ -356,7 +356,7 @@ footer .wrap {
         radial-gradient(circle at 0 80%, #afc8ffcc 0%, #0000 70%);
     background-blend-mode: screen;
     filter: blur(100px);
-    opacity: .48;
+    opacity: .58;
     will-change: transform;
     animation: 8s ease-in-out infinite pop;
 }
