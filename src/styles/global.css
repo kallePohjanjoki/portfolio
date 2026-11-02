@@ -435,21 +435,40 @@ section.block {
 }
 
 .project {
+    position: relative;
+    isolation: isolate;
     margin: 10px 0;
     padding: 20px 22px;
-    background: var(--surface);
-    border: 1px solid var(--glass-edge);
-    border-radius: 14px;
-    box-shadow: 0 9px 28px rgba(55, 83, 116, .055), inset 0 1px 0 rgba(255, 255, 255, .76);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, .42);
+    border: 1px solid rgba(255, 255, 255, .96);
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(55, 83, 116, .085), inset 0 1px 0 rgba(255, 255, 255, .98), inset 0 -1px 0 rgba(104, 175, 240, .08);
+    backdrop-filter: blur(22px) saturate(1.15);
+    -webkit-backdrop-filter: blur(22px) saturate(1.15);
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.project::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background:
+        radial-gradient(ellipse at 10% 0, rgba(255, 255, 255, .72), transparent 55%),
+        linear-gradient(135deg, rgba(255, 255, 255, .44), transparent 52%, rgba(104, 175, 240, .07));
+    pointer-events: none;
+}
+
+.project > * {
+    position: relative;
+    z-index: 1;
+}
+
 .project:hover {
-    background: color-mix(in srgb, var(--surface) 90%, white 10%);
-    border-color: color-mix(in srgb, var(--accent) 40%, var(--glass-edge));
-    box-shadow: 0 14px 34px rgba(55, 83, 116, .095), inset 0 1px 0 rgba(255, 255, 255, .85);
+    background: rgba(255, 255, 255, .52);
+    border-color: #fff;
+    box-shadow: 0 16px 38px rgba(55, 83, 116, .12), inset 0 1px 0 #fff, inset 0 -1px 0 rgba(104, 175, 240, .12);
     transform: translateY(-2px);
 }
 
@@ -552,6 +571,7 @@ section.block {
     .project {
         padding: 17px;
         margin: 9px 0;
+        border-radius: 14px;
     }
 
     .contact {
