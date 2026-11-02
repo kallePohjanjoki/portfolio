@@ -4,21 +4,21 @@ import { Image } from 'astro:assets';
 import headshotImage from '../assets/headshot_bw.jpeg';
 
 const skills = [
-  { name: 'Azure', learning: false },
-  { name: 'AWS', learning: false },
-  { name: 'Terraform', learning: false },
-  { name: 'Python', learning: false },
-  { name: 'SQL', learning: false },
-  { name: 'Kubernetes', learning: false },
-  { name: 'Docker', learning: false },
-  { name: 'CI/CD', learning: false },
+  { name: 'Azure', icon: 'microsoft-azure' },
+  { name: 'AWS', icon: 'aws' },
+  { name: 'Terraform', icon: 'terraform-icon' },
+  { name: 'Python', icon: 'python' },
+  { name: 'SQL', icon: 'aws-aurora' },
+  { name: 'Kubernetes', icon: 'kubernetes' },
+  { name: 'Docker', icon: 'docker-icon' },
+  { name: 'CI/CD', icon: 'github-actions' },
 ];
 
 const experience = [
      {
-    name: 'Tampere University.',
+    name: 'Tampere University',
     role: 'Teaching Assistant',
-    period: '10/2026 - Present',
+    period: '11/2026 - Present',
     description:
       'Teaching Assistant for the Programming 1 course.',
     stack: 'Python',
@@ -154,7 +154,7 @@ const contactLinks = [
           <div class="eyebrow">Tampere, Finland</div>
           <h1>Cloud Engineer</h1>
           <h1>CS Student</h1>
-          <p>Computer Science student at Tampere University, focusing on Cloud, Security and DevOps. AZ-104 certified, with hands-on experience in Azure, AWS, Terraform, Kubernetes and Docker.
+          <p>Computer Science student at Tampere University, with a minor in Communication Systems and Networks, focusing on Cloud, Security and DevOps. AZ-104 certified, with hands-on experience in Azure, AWS, Terraform, Kubernetes and Docker.
 
 
           </p>
@@ -176,7 +176,7 @@ const contactLinks = [
       <div class="status-grid">
         {skills.map((skill) => (
           <div class="status-item">
-            <span class={`dot ${skill.learning ? 'learning' : ''}`}></span>
+            <img class="skill-icon" src={`https://devicons.io/devicons/font/${skill.icon}.svg`} alt="" aria-hidden="true" loading="lazy" />
             {skill.name}
           </div>
         ))}
@@ -194,10 +194,10 @@ const contactLinks = [
       {experience.map((item) => (
         <div class="project">
           <div class="project-top">
-            <h3>{item.name}</h3>
+            <h3>{item.role ?? item.name}</h3>
             <span class="tag">{item.period}</span>
           </div>
-          {item.role && <div class="role">{item.role}</div>}
+          {item.role && <div class="role">{item.name}</div>}
           <p>{item.description}</p>
           <div class="stack"><span>Stack —</span> {item.stack}</div>
         </div>

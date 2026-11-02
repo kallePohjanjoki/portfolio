@@ -181,7 +181,7 @@ nav a:hover {
 .hero-avatar img {
     width: 240px;
     height: 240px;
-    border-radius: 16px;
+    border-radius: 50%;
     object-fit: cover;
     object-position: center bottom;
     border: 1px solid var(--border);
@@ -236,22 +236,20 @@ nav a:hover {
     padding: 14px 16px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-family: var(--font-mono);
     font-size: 13px;
 }
 
-.dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--fg);
-    flex-shrink: 0;
+.skill-icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    filter: brightness(0);
 }
 
-.dot.learning {
-    background: transparent;
-    border: 1px solid var(--muted);
+:root[data-theme="dark"] .skill-icon {
+    filter: brightness(0) invert(1);
 }
 
 /* ---------- Section shared ---------- */
