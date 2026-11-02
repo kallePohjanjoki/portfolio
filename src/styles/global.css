@@ -4,7 +4,7 @@
     --fg: #111111;
     --muted: #6B6B6B;
     --border: #E4E4E4;
-    --accent: #F6821F;
+    --accent: #79BFF7;
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
@@ -16,7 +16,7 @@
     --fg: #FAFAFA;
     --muted: #888888;
     --border: #222222;
-    --accent: #FF713B;
+    --accent: #79BFF7;
 }
 
 * {
