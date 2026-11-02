@@ -1,20 +1,22 @@
 :root {
+    color-scheme: light;
     --bg: #FAFAFA;
     --fg: #111111;
     --muted: #6B6B6B;
     --border: #E4E4E4;
-    --accent: #000000;
+    --accent: #F6821F;
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 }
 
 :root[data-theme="dark"] {
+    color-scheme: dark;
     --bg: #121212;
     --fg: #FAFAFA;
     --muted: #888888;
     --border: #222222;
-    --accent: #FFFFFF;
+    --accent: #FF713B;
 }
 
 * {
@@ -84,7 +86,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--fg);
+    color: var(--accent);
 }
 
 .header-right {
@@ -148,7 +150,7 @@ nav a:hover {
 .hero .eyebrow {
     font-family: var(--font-mono);
     font-size: 13px;
-    color: var(--muted);
+    color: var(--accent);
     margin-bottom: 16px;
 }
 
@@ -191,22 +193,25 @@ nav a:hover {
     font-family: var(--font-mono);
     font-size: 13px;
     padding: 10px 16px;
-    border: 1px solid var(--fg);
+    border: 1px solid var(--accent);
     transition: background .15s ease, color .15s ease;
 }
 
 .btn.primary {
-    background: var(--fg);
-    color: var(--bg);
+    background: var(--accent);
+    color: #111111;
 }
 
 .btn.primary:hover {
-    background: #333;
+    background: var(--fg);
+    border-color: var(--fg);
+    color: var(--bg);
 }
 
 .btn.ghost:hover {
-    background: var(--fg);
-    color: var(--bg);
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #111111;
 }
 
 /* ---------- Status strip (signature element) ---------- */
@@ -218,7 +223,7 @@ nav a:hover {
 .status .label {
     font-family: var(--font-mono);
     font-size: 12px;
-    color: var(--muted);
+    color: var(--accent);
     margin-bottom: 16px;
     letter-spacing: 0.02em;
 }
@@ -343,7 +348,7 @@ section.block:last-of-type {
     margin-top: 12px;
     font-family: var(--font-mono);
     font-size: 12px;
-    border-bottom: 1px solid var(--fg);
+    border-bottom: 1px solid var(--accent);
 }
 
 
@@ -389,7 +394,8 @@ section.block:last-of-type {
 }
 
 .contact .links a:hover {
-    border-bottom-color: var(--fg);
+    border-bottom-color: var(--accent);
+    color: var(--accent);
 }
 
 footer {
@@ -497,7 +503,7 @@ footer {
 
 a:focus-visible,
 .btn:focus-visible {
-    outline: 2px solid var(--fg);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
 
