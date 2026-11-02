@@ -63,6 +63,10 @@ header .wrap {
     box-shadow: var(--glass-shadow);
 }
 
+header nav {
+    border-radius: inherit;
+}
+
 nav a {
     margin-left: 6px;
     padding: 8px 10px;
@@ -82,29 +86,53 @@ nav a {
     transform: translateY(-50%);
 }
 
-.hero-title-row {
-    display: flex;
+.hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 188px;
+    grid-template-areas:
+        "heading photo"
+        "description photo"
+        "links photo";
     align-items: center;
-    gap: 104px;
+    column-gap: 32px;
+}
+
+.hero-identity {
+    min-width: 0;
+}
+
+.hero-heading {
+    grid-area: heading;
 }
 
 .hero-name {
-    margin: 0 0 -50px;
+    margin: 0;
     color: var(--fg);
     font-family: var(--font-display);
-    font-size: clamp(42px, 5vw, 58px);
+    font-size: clamp(40px, 4.8vw, 58px);
     font-weight: 600;
-    line-height: 1.15;
+    line-height: 1.05;
     letter-spacing: -.055em;
 }
 
+.hero-title {
+    margin-top: 8px;
+    color: #4a5a78;
+    font-size: clamp(18px, 2.3vw, 24px);
+    font-weight: 500;
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
 .hero-avatar {
+    grid-area: photo;
     position: relative;
     width: 188px;
     height: 188px;
-    flex: 0 0 188px;
-    transform: translateY(-28px);
+    transform: none;
     padding: 0;
+    justify-self: end;
+    align-self: center;
     overflow: hidden;
     border-radius: 50%;
     background: var(--surface);
@@ -127,7 +155,7 @@ nav a {
 
 /* ---------- Hero ---------- */
 .hero {
-    padding: 76px 0 58px;
+    padding: 62px 0 30px;
 }
 
 .hero-grid {
@@ -137,24 +165,18 @@ nav a {
     align-items: center;
 }
 
-.hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(42px, 5vw, 58px);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -.055em;
-    max-width: 560px;
-}
-
-.hero p {
-    margin-top: 1px;
+.hero-description {
+    grid-area: description;
+    margin-top: 10px;
     font-size: 16px;
-    color: var(--muted);
-    max-width: 460px;
-    line-height: 1.8;
+    color: #52647a;
+    max-width: 60ch;
+    line-height: 1.6;
+    text-wrap: pretty;
 }
 
 .hero .links {
+    grid-area: links;
     margin-top: 28px;
     display: flex;
     align-items: center;
@@ -361,6 +383,8 @@ footer .wrap {
         width: 100%;
         align-items: center;
         justify-content: space-evenly;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
 
     header nav a {
@@ -409,7 +433,7 @@ nav a:hover {
 }
 
 .status {
-    padding: 24px 0 50px;
+    padding: 16px 0 46px;
 }
 
 section.block {
@@ -522,25 +546,27 @@ section.block {
         -webkit-backdrop-filter: none !important;
     }
 
-    .hero-title-row {
-        gap: 22px;
-    }
-
-    .hero-title-row h1 {
-        font-size: clamp(22px, 7vw, 30px);
-        letter-spacing: -.055em;
+    .hero-content {
+        grid-template-columns: minmax(0, 1fr) 92px;
+        grid-template-areas:
+            "heading photo"
+            "description photo"
+            "links photo";
+        column-gap: 14px;
     }
 
     .hero-name {
-        margin-bottom: -34px;
-        font-size: clamp(22px, 7vw, 30px);
-        line-height: 1.15;
+        font-size: clamp(22px, 6vw, 28px);
+    }
+
+    .hero-title {
+        margin-top: 5px;
+        font-size: clamp(13px, 3.4vw, 15px);
     }
 
     .hero-avatar {
-        width: 108px;
-        height: 108px;
-        flex-basis: 108px;
+        width: 92px;
+        height: 92px;
     }
 
     .hero-avatar img {
@@ -548,11 +574,21 @@ section.block {
     }
 
     .hero {
-        padding: 48px 0 38px;
+        padding: 42px 0 22px;
+    }
+
+    .hero-description {
+        margin-top: 10px;
+        font-size: 15px;
+        line-height: 1.5;
     }
 
     .hero-grid {
         gap: 22px;
+    }
+
+    .status {
+        padding-top: 14px;
     }
 
     .hero .links {
@@ -620,20 +656,6 @@ section.block {
         padding: 16px;
     }
 
-    .project-story {
-        grid-template-columns: 1fr;
-        gap: 11px;
-    }
-
-    .project-story > div {
-        display: grid;
-        grid-template-columns: 66px minmax(0, 1fr);
-        gap: 8px;
-    }
-
-    .project-story dt {
-        margin: 2px 0 0;
-    }
 }
 
 a:focus-visible,
@@ -658,10 +680,6 @@ a:focus-visible,
     fill: currentColor;
     stroke: none;
 }
-
-.skill-icon.skill-icon-microsoftazure { color: #68aff0; }
-.skill-icon.skill-icon-amazonaws { color: #ff9900; }
-.skill-icon.skill-icon-database { color: #68aff0; }
 
 .status-item {
     display: flex;
@@ -700,7 +718,7 @@ a:focus-visible,
     height: 36px;
     flex: 0 0 36px;
     padding: 7px;
-    color: #527a9b;
+    color: #526b86;
     background: linear-gradient(145deg, rgba(255,255,255,.72), rgba(224,239,255,.28) 58%, rgba(205,227,249,.2));
     border: 1px solid rgba(255,255,255,.72);
     border-radius: 10px;
@@ -731,6 +749,15 @@ a:focus-visible,
     stroke-width: 1.7;
     stroke-linecap: round;
     stroke-linejoin: round;
+}
+
+.skill-icon .pipeline-icon {
+    stroke-width: 2.5;
+}
+
+/* Lucide user-round-key icon, ISC License: https://lucide.dev/icons/user-round-key */
+.skill-icon .iam-icon {
+    stroke-width: 2;
 }
 
 .status-grid {
@@ -764,6 +791,26 @@ a:focus-visible,
 @media (max-width: 360px) {
     .status-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-content {
+        grid-template-columns: minmax(0, 1fr) 84px;
+        column-gap: 10px;
+    }
+
+    .hero-name {
+        font-size: clamp(20px, 6vw, 24px);
+    }
+
+    .hero-title {
+        font-size: clamp(11px, 3.3vw, 13px);
+    }
+
+    .hero-avatar {
+        width: 84px;
+        height: 84px;
     }
 }
 
@@ -823,4 +870,21 @@ a:focus-visible,
     outline: 2px solid var(--accent-text);
     outline-offset: 3px;
     border-radius: 3px;
+}
+
+@media (max-width: 640px) {
+    .project-story {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .project-story > div {
+        display: grid;
+        grid-template-columns: 66px minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .project-story dt {
+        margin: 2px 0 0;
+    }
 }
